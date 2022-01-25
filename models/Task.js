@@ -13,6 +13,10 @@ const TaskScheme = new mongoose.Schema({
     completed: {
         type: Boolean,
         default: false
+    },
+    __v: {
+        type: Number,
+        select: false
     }
 })
 

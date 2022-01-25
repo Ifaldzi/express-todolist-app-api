@@ -9,6 +9,10 @@ const {
     deleteTask
 } = require('../controllers/task')
 
+const authMiddleware = require('../middleware/auth')
+
+router.use(authMiddleware)
+
 router.get('/', getAllTasks)
 router.post('/', createTask)
 router.get('/:id', getTask)

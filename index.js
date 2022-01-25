@@ -5,6 +5,7 @@ const connectDB = require('./db/connection')
 const taskRoute = require('./routes/task')
 const errorHandler = require('./middleware/errorHandler')
 const notFound = require('./middleware/notFound')
+const authRoute = require('./routes/auth')
 
 const app = express()
 
@@ -13,6 +14,7 @@ app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 
 app.use('/api/tasks', taskRoute)
+app.use('/api', authRoute)
 
 app.use(notFound)
 app.use(errorHandler)
