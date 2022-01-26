@@ -14,9 +14,20 @@ const TaskScheme = new mongoose.Schema({
         type: Boolean,
         default: false
     },
-    __v: {
-        type: Number,
-        select: false
+    dueDate: {
+        type: Date
+    },
+    user: {
+        type: mongoose.Types.ObjectId,
+        ref: 'User',
+        required: true
+    },
+})
+
+TaskScheme.set('toJSON', {
+    transform: function (doc, ret, opt) {
+        delete ret['__v']
+        return ret
     }
 })
 
